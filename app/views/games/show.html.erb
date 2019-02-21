@@ -1,0 +1,394 @@
+<h2><%= @game.name%></h2>
+
+<div class="row">
+  <div class="col-4 border">
+    <!-- Accordion content -->
+    <div class="accordion" id="accordionExample">
+      <!-- Maps -->
+      <div class="card ">
+        <div class="card-header" id="headingMaps">
+          <div class="row d-flex justify-content-between">
+            <div class="col-2">
+              <h2 class="mb-0">
+                <button class="btn btn-link btn-sm" type="button" data-toggle="collapse" data-target="#collapseMaps" aria-expanded="true" aria-controls="collapseMaps">
+                  Maps:
+                </button>
+              </h2>
+            </div >
+            <div class="col-7">
+              <button type="button" class="btn btn-primary btn-sm w-100 mt-1" data-toggle="modal" data-target="#mapModal">
+                  Add a New Map
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div id="collapseMaps" class="collapse" aria-labelledby="headingMaps" data-parent="#accordionExample">
+          <div class="card-body">
+            <div>
+              <% @game.maps.each do |map| %>
+                <div class="inline mt-2 mr-5"><%= map.name %></div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Materials -->
+      <div class="card">
+        <div class="card-header" id="headingMaterials">
+          <div class="row d-flex justify-content-between">
+            <div class="col-2">
+              <h2 class="mb-0">
+                <button class="btn btn-link btn-sm" type="button" data-toggle="collapse" data-target="#collapseMaterials" aria-expanded="true" aria-controls="collapseMaterials">
+                  Materials:
+                </button>
+              </h2>
+            </div >
+            <div class="col-7">
+              <button type="button" class="btn btn-primary btn-sm w-100 mt-1" data-toggle="modal" data-target="#materialModal">
+                  Add a New Material
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="collapseMaterials" class="collapse" aria-labelledby="headingMaterials" data-parent="#accordionExample">
+          <div class="card-body">
+            <div class="row">
+                <% @game.materials.each do |map| %>
+                  <div class="inline mt-2 mr-5"><%= map.name %></div>
+                <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stat effects -->
+      <div class="card">
+        <div class="card-header" id="headingStatEffects">
+          <div class="row d-flex justify-content-between">
+            <div class="col-2">
+              <h2 class="mb-0">
+                <button class="btn btn-link btn-sm" type="button" data-toggle="collapse" data-target="#collapseStatEffects" aria-expanded="true" aria-controls="collapseStatEffects">
+                  Status Effects:
+                </button>
+              </h2>
+            </div >
+            <div class="col-7">
+              <button type="button" class="btn btn-primary btn-sm w-100 mt-1" data-toggle="modal" data-target="#mapModal">
+                  Add a New Stat Effect
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="collapseStatEffects" class="collapse" aria-labelledby="headingStatEffects" data-parent="#accordionExample">
+          <div class="card-body">
+            <!-- Button trigger modal -->
+            <div class="row">
+              <% @game.stat_effects.each do |effect| %>
+                <div class="inline mt-2 mr-5"><%= effect.name %></div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Damage Effects -->
+      <div class="card">
+        <div class="card-header" id="headingDamageEffects">
+          <div class="row d-flex justify-content-between">
+            <div class="col-2">
+              <h2 class="mb-0">
+                <button class="btn btn-link btn-sm" type="button" data-toggle="collapse" data-target="#collapseDamageEffects" aria-expanded="true" aria-controls="collapseDamageEffects">
+                  Damage Effects:
+                </button>
+              </h2>
+            </div >
+            <div class="col-7">
+              <button type="button" class="btn btn-primary btn-sm w-100 mt-1" data-toggle="modal" data-target="#mapModal">
+                  Add a New Damage Effect
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="collapseDamageEffects" class="collapse" aria-labelledby="headingDamageEffects" data-parent="#accordionExample">
+          <div class="card-body">
+            <!-- Button trigger modal -->
+            <div class="row">
+              <% @game.stat_effects.each do |effect| %>
+                <div class="inline mt-2 mr-5"><%= effect.name %></div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Weapon Class -->
+      <div class="card">
+        <div class="card-header" id="headingWeaponClasses">
+          <div class="row d-flex justify-content-between">
+            <div class="col-2">
+              <h2 class="mb-0">
+                <button class="btn btn-link btn-sm" type="button" data-toggle="collapse" data-target="#collapseWeaponClasses" aria-expanded="true" aria-controls="collapseWeaponClasses">
+                  Weapon Classes:
+                </button>
+              </h2>
+            </div >
+            <div class="col-7">
+              <button type="button" class="btn btn-primary btn-sm w-100 mt-1" data-toggle="modal" data-target="#mapModal">
+                  Add a New Weapon Class
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="collapseWeaponClasses" class="collapse" aria-labelledby="headingWeaponClasses" data-parent="#accordionExample">
+          <div class="card-body">
+            <!-- Button trigger modal -->
+            <div class="row">
+              <% @game.stat_effects.each do |effect| %>
+                <div class="inline mt-2 mr-5"><%= effect.name %></div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Weapon-->
+      <div class="card">
+        <div class="card-header" id="headingWeapon">
+          <div class="row d-flex justify-content-between">
+            <div class="col-2">
+              <h2 class="mb-0">
+                <button class="btn btn-link btn-sm" type="button" data-toggle="collapse" data-target="#collapseWeapons" aria-expanded="true" aria-controls="collapseWeapons">
+                  Weapons:
+                </button>
+              </h2>
+            </div >
+            <div class="col-7">
+              <button type="button" class="btn btn-primary btn-sm w-100 mt-1" data-toggle="modal" data-target="#mapModal">
+                  Add a New Weapon
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="collapseWeapons" class="collapse" aria-labelledby="headingWeapon" data-parent="#accordionExample">
+          <div class="card-body">
+            <!-- Button trigger modal -->
+            <div class="row">
+              <% @game.stat_effects.each do |effect| %>
+                <div class="inline mt-2 mr-5"><%= effect.name %></div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Armor Class -->
+      <div class="card">
+        <div class="card-header" id="headingArmorClasses">
+          <div class="row d-flex justify-content-between">
+            <div class="col-2">
+              <h2 class="mb-0">
+                <button class="btn btn-link btn-sm" type="button" data-toggle="collapse" data-target="#collapseArmorClasses" aria-expanded="true" aria-controls="collapseArmorClasses">
+                  Armor Classes:
+                </button>
+              </h2>
+            </div >
+            <div class="col-7">
+              <button type="button" class="btn btn-primary btn-sm w-100 mt-1" data-toggle="modal" data-target="#mapModal">
+                  Add a New Armor Class
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="collapseArmorClasses" class="collapse" aria-labelledby="headingArmorClasses" data-parent="#accordionExample">
+          <div class="card-body">
+            <div class="row">
+              <% @game.stat_effects.each do |effect| %>
+                <div class="inline mt-2 mr-5"><%= effect.name %></div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Armor -->
+      <div class="card">
+        <div class="card-header" id="headingArmor">
+          <div class="row d-flex justify-content-between">
+            <div class="col-2">
+              <h2 class="mb-0">
+                <button class="btn btn-link btn-sm" type="button" data-toggle="collapse" data-target="#collapseArmor" aria-expanded="true" aria-controls="collapseArmor">
+                  Armors:
+                </button>
+              </h2>
+            </div >
+            <div class="col-7">
+              <button type="button" class="btn btn-primary btn-sm w-100 mt-1" data-toggle="modal" data-target="#mapModal">
+                  Add a New Armor
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="collapseArmor" class="collapse" aria-labelledby="headingArmor" data-parent="#accordionExample">
+          <div class="card-body">
+            <div class="row">
+              <% @game.stat_effects.each do |effect| %>
+                <div class="inline mt-2 mr-5"><%= effect.name %></div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Item -->
+      <div class="card">
+        <div class="card-header" id="headingArmorItem">
+          <div class="row d-flex justify-content-between">
+            <div class="col-2">
+              <h2 class="mb-0">
+                <button class="btn btn-link btn-sm" type="button" data-toggle="collapse" data-target="#collapseItems" aria-expanded="true" aria-controls="collapseItems">
+                  Items:
+                </button>
+              </h2>
+            </div >
+            <div class="col-7">
+              <button type="button" class="btn btn-primary btn-sm w-100 mt-1" data-toggle="modal" data-target="#mapModal">
+                  Add a New Item
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="collapseItems" class="collapse" aria-labelledby="headingItems" data-parent="#accordionExample">
+          <div class="card-body">
+            <div class="row">
+              <% @game.stat_effects.each do |effect| %>
+                <div class="inline mt-2 mr-5"><%= effect.name %></div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- spells -->
+      <div class="card">
+        <div class="card-header" id="headingSpells">
+          <div class="row d-flex justify-content-between">
+            <div class="col-2">
+              <h2 class="mb-0">
+                <button class="btn btn-link btn-sm" type="button" data-toggle="collapse" data-target="#collapseSpells" aria-expanded="true" aria-controls="collapseSpells">
+                  Spells:
+                </button>
+              </h2>
+            </div >
+            <div class="col-7">
+              <button type="button" class="btn btn-primary btn-sm w-100 mt-1" data-toggle="modal" data-target="#mapModal">
+                  Add a New Spell
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="collapseSpells" class="collapse" aria-labelledby="headingSpells" data-parent="#accordionExample">
+          <div class="card-body">
+            <div class="row">
+              <% @game.stat_effects.each do |effect| %>
+                <div class="inline mt-2 mr-5"><%= effect.name %></div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Skills -->
+      <div class="card">
+        <div class="card-header" id="headingSkills">
+          <div class="row d-flex justify-content-between">
+            <div class="col-2">
+              <h2 class="mb-0">
+                <button class="btn btn-link btn-sm" type="button" data-toggle="collapse" data-target="#collapseSkills" aria-expanded="true" aria-controls="collapseSkills">
+                  Skills:
+                </button>
+              </h2>
+            </div >
+            <div class="col-7">
+              <button type="button" class="btn btn-primary btn-sm w-100 mt-1" data-toggle="modal" data-target="#mapModal">
+                  Add a New Skills
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="collapseSkills" class="collapse" aria-labelledby="headingSkills" data-parent="#accordionExample">
+          <div class="card-body">
+            <div class="row">
+              <% @game.stat_effects.each do |effect| %>
+                <div class="inline mt-2 mr-5"><%= effect.name %></div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-8">
+      <div id="map_editor"></div>
+  </div>
+</div>
+<!-- modals -->
+
+<!-- Maps -->
+<div class="modal fade" id="mapModal" tabindex="-1" role="dialog" aria-labelledby="mapModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="mapModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <%= form_for @game.maps.new, :url => new_game_map_path(@game) do |map| %>
+        <div class="modal-body">
+            <div>Name: <%= map.text_field :name %></div>
+            <div class="mt-2">Type: <%= map.select :map_type, options_for_select([['World', 'world'],['village','village'],['dungeon','dungeon']]) %></div>
+            <div class="mt-2"> Scale(number of squares): <%= map.select :scale, options_for_select([['8 x 5', 1],['10 x 5', 2 ],['10 x 10', 3],['8 x 10', 4]]) %></div>
+            <div class="mt-2">Map background: <%= map.text_field :image %></div>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <%= map.submit 'submit', :class => 'btn btn-primary' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<!-- Materials -->
+<div class="modal fade" id="materialModal" tabindex="-1" role="dialog" aria-labelledby="materialModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="materialModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <%= form_for @game.materials.new, :url => new_game_material_path(@game) do |material| %>
+        <div class="modal-body">
+            <div>Name: <%= material.text_field :name %></div>
+            <div>physical resistance: <%= material.number_field :physical_resistance %></div>
+            <div>fire resistance: <%= material.number_field :fire_resistance %></div>
+            <div>lightning resistance: <%= material.number_field :lightning_resistance %></div>
+            <div>ice resistance: <%= material.number_field :ice_resistance %></div>
+            <div>water resistance: <%= material.number_field :water_resistance %></div>
+            <div>earth resistance: <%= material.number_field :earth_resistance %></div>
+            <div>dark resistance: <%= material.number_field :dark_resistance %></div>
+            <div>magic resistance: <%= material.number_field :magic_resistance %></div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <%= material.submit 'submit', :class => 'btn btn-primary' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

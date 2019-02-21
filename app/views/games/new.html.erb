@@ -1,0 +1,13 @@
+<h1>New Game:</h1>
+<%= form_for(@game) do |game| %>
+    Name:<%= game.text_field :name, :style => 'width:400px;margin-left:5px;margin-bottom:5px' %><br>
+    <div>
+        Fantasy<%= game.check_box :genre,{multiple: true},"Fantasy",nil %>
+        Sci-fi<%= game.check_box :genre,{multiple: true},"Scifi",nil %>
+        Steampunk<%= game.check_box :genre,{multiple: true},"Steampunk",nil %>
+        Historical<%= game.check_box :genre,{multiple: true},"historical",nil %>
+    </div>
+    <p>Lore:</p><%= game.text_area :lore, :style => 'width:50%;height:400px' %>
+    <br>
+    <%= game.submit %>
+<% end %>

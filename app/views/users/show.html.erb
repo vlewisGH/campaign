@@ -1,0 +1,83 @@
+<div class="wrapper m-2">
+  <div class="row">
+    <div class="col-9">
+      <div class='row ml-1'>
+        <div class='col-2'>
+          <%= image_tag(@user.photo ||= 'avatar.png', class: 'img-fluid') %>
+        </div>
+        <div class='col-4'>
+          <p>name:<br><%= @user.first_name %> <%= @user.last_name %></p>
+        </div>
+      </div>
+      <%= form_for @user do |f| %>
+        <div>
+          <%= f.filestack_field :photo, 'Upload Your Avatar!' %>
+        </div>
+
+        <%= f.submit %>
+      <% end %>
+
+
+      <!-- Button trigger modal -->
+      
+      <div class='row'>
+        <div class='col-4'>
+          <h3 class="mt-5"> My games: </h3>
+        </div>
+        <div class='col-4'>
+          <button type="button" class="btn btn-primary mt-5 btn-sm " data-toggle="modal" data-target="#exampleModal">
+            Add a New Game
+          </button>
+        </div>
+      </div>
+      <% @myGames.each do |game|  %>
+          <div class='row h-50 border-top w-50 pt-2'>
+            <div class="col-6">
+              <%= game.name %>
+            </div>
+            <div class='col-6 text-right'>
+              <%= link_to 'Edit Game', game_path(game), :class => 'btn btn-primary btn-sm' %>
+              <%= link_to 'Adventures', game_adventures_path(game), :class => 'btn btn-primary btn-sm' %>
+            </div>
+          </div>
+      <% end %>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <%= form_for(@newGame) do |game| %>
+              <div class="modal-body">
+                  
+                      Name:<%= game.text_field :name, :style => 'width:400px;margin-left:5px;margin-bottom:5px' %><br>
+                      <div>
+                          Fantasy<%= game.check_box :genre,{multiple: true},"Fantasy",nil %>
+                          Sci-fi<%= game.check_box :genre,{multiple: true},"Scifi",nil %>
+                          Steampunk<%= game.check_box :genre,{multiple: true},"Steampunk",nil %>
+                          Historical<%= game.check_box :genre,{multiple: true},"historical",nil %>
+                      </div>
+                      <p>Lore:</p><%= game.text_area :lore, :style => 'width:50%;height:200px' %>
+                      <br>
+                      
+                  
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <%= game.submit "Submit", :class => "btn btn-primary" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-3 border-left border-light">
+      <h3>Contacts:</h3>
+    </div>
+  </div>
+</div>

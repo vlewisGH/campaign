@@ -1,0 +1,10 @@
+<h1>Join</h1>
+<br>
+<br>
+<%= form_for :user do |new|%>
+    first name: <%= new.text_field :first_name %><br>
+    last name: <%= new.text_field :last_name %><br>
+    username: <%= new.text_field :username %><br>
+    password: <%= new.text_field :password %><br><br>
+    <%= new.submit %>
+<% end %>

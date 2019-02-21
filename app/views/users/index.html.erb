@@ -1,0 +1,8 @@
+<div class = 'ml-3 mt-5'>
+    <% @games.each do |game| %>
+        <p><%= game.name %></p>
+        <%= link_to 'view', game_path(game) %>
+        <%= link_to 'delete', game_path(game), :class => 'ml-3', method: :delete  %>
+    <% end %>
+</div>
+
